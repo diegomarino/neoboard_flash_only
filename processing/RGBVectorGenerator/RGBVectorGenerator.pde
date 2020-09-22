@@ -48,20 +48,20 @@ void processThumbnail() {
 
       color c = thumbnail.pixels[index];
 
-      String GRBvalues = ""; // Will have a {G, R, B} format so it can be consumed as an array of uint8s by the arduino code
-      GRBvalues += "{";
-      GRBvalues += Math.round(red(c));
-      GRBvalues += ",";
-      GRBvalues += Math.round(green(c));
-      GRBvalues += ",";
-      GRBvalues += Math.round(blue(c));
-      GRBvalues += "},";
+      String RGBvalues = ""; // Will have a {G, R, B} format so it can be consumed as an array of uint8s by the arduino code
+      RGBvalues += "{";
+      RGBvalues += Math.round(red(c));
+      RGBvalues += ",";
+      RGBvalues += Math.round(green(c));
+      RGBvalues += ",";
+      RGBvalues += Math.round(blue(c));
+      RGBvalues += "},";
 
       // The need for the "abs(pixelNum-255)" modification cames from the 
       //difference of how Processing and the led strips are typically connected.
       //For Processing the (0,0) coordinate is situated at the top-left corner, 
       //while for the led strips is situated at the bottom-left corner. 
-      outputRows[abs(pixelNum-255)] = GRBvalues;
+      outputRows[abs(pixelNum-255)] = RGBvalues;
 
       pixelNum++;
     }
